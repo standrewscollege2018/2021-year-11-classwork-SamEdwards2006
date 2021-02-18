@@ -12,21 +12,26 @@ while keepplaying == "y":
     Solved = False
     num = random.randint(-100, 100)
     while Solved == False:
-        num_input = int(input("Guess a number between -100 and 100: "))
-        if num_input == num:
-            Solved = True
-        elif num_input <= -101:
-            print("TOO LOW. GO WAY HIGHER!!")
-            guess = guess + 1
-        elif num_input >= 101:
-            print("TOO HIGH. GO WAY LOWER!!")
-            guess = guess + 1
-        elif num_input >= num:
-            print("Lower")
-            guess = guess + 1
-        elif num_input <= num:
-            print("Higher")
-            guess = guess + 1
+        try:
+            num_input = int(input("Guess a number between -100 and 100: "))
+            if num_input == num:
+                Solved = True
+            elif num_input <= -101:
+                print("TOO LOW. GO WAY HIGHER!!")
+                guess = guess + 1
+            elif num_input >= 101:
+                print("TOO HIGH. GO WAY LOWER!!")
+                guess = guess + 1
+            elif num_input >= num:
+                print("Lower")
+                guess = guess + 1
+            elif num_input <= num:
+                print("Higher")
+                guess = guess + 1
+        except:
+            print("ENTER AN INTEGER")
+            guess += 10
+            print("BECAUSE YOU ARE A NUMPTY, 10 HAS BEEN ADDED TO YOUR SCORE")
     print("Correct")
     #prints the amount of tries it took the user
     print("it took you", guess, "tries")
